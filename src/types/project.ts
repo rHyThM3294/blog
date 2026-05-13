@@ -11,4 +11,5 @@ export interface Project {
   repoUrl?: string;
   role?: string;
   period?: string;
+  featured?: boolean;  // 加這行
 }
