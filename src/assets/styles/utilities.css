@@ -1,0 +1,60 @@
+.container{
+  width: min(100% - 32px, var(--containerWidth));
+  margin: 0 auto;
+}
+.section{
+  padding: var(--space16) 0;
+}
+.sectionSm{
+  padding: var(--space12) 0;
+}
+.sectionLg{
+  padding: var(--space20) 0;
+}
+.sectionTitle{
+  font-size: clamp(var(--font7), 4vw, var(--font10));
+  line-height: var(--line1);
+  color: var(--darkWordColor);
+  font-weight: 700;
+}
+.sectionDesc{
+  margin-top: var(--space4);
+  font-size: var(--font4);
+  line-height: var(--line2);
+  color: var(--lightWordColor);
+}
+.surface{
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius2);
+  box-shadow: var(--shadow1);
+}
+.gridAuto{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space6);
+}
+.stack4 > * + * {
+  margin-top: var(--space4);
+}
+.stack6 > * + * {
+  margin-top: var(--space6);
+}
+.stack8 > * + * {
+  margin-top: var(--space8);
+}
+.stack10 > * + * {
+  margin-top: var(--space10);
+}
+.textLight{
+  color: var(--lightWordColor);
+}
+.textDark{
+  color: var(--darkWordColor);
+}
+.textMain{
+  color: var(--mainColor);
+}
+.bgSoft{
+  background: var(--backgroundColor);
+}

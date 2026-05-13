@@ -1,0 +1,7 @@
+<template>
+  <!-- 通用組件將在這裡放置 -->
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>

@@ -1,0 +1,70 @@
+:root {
+  /* color */
+  --mainColor:#3D5A5A;
+  --firstColor:#6B8F8A;
+  --secondColor:#A8C4BF;
+  --lightWordColor:#9E9A94;
+  --darkWordColor:#1E1C1A;
+  --backgroundColor:#F7F6F3;
+  --white:#ffffff;
+  --black:#000000;
+  --gray:#c4c4c4;
+
+  /* shadow */
+  --shadow1: 0 4px 12px rgba(15, 23, 42, 0.04);
+  --shadow2: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow3: 4px 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow4: 10px 10px 30px rgba(15, 23, 42, 0.08);
+
+  /* radius */
+  --radius1: 8px;
+  --radius2: 16px;
+  --radius3: 24px;
+
+  /* spacing */
+  --space1:4px;
+  --space2:8px;
+  --space3:12px;
+  --space4:16px;
+  --space5:20px;
+  --space6:24px;
+  --space7:28px;
+  --space8:32px;
+  --space9:36px;
+  --space10:40px;
+  --space11:44px;
+  --space12:48px;
+  --space13:52px;
+  --space14:56px;
+  --space15:60px;
+  --space16:64px;
+  --space17:68px;
+  --space18:72px;
+  --space19:76px;
+  --space20:80px;
+
+  /* layout */
+  --containerWidth:1200px;
+
+  /* typography */
+  --font1:12px;
+  --font2:14px;
+  --font3:16px;
+  --font4:18px;
+  --font5:20px;
+  --font6:24px;
+  --font7:28px;
+  --font8:32px;
+  --font9:36px;
+  --font10:48px;
+  --font11:56px;
+  --font12:64px;
+
+  --line1: 1.2;
+  --line2: 1.6;
+  --line3: 1.8;
+
+  /* transition */
+  --transitionNormal:all 300ms ease;
+  --transitionSlow:all 800ms ease;
+}
