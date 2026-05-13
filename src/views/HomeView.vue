@@ -5,9 +5,9 @@
         <div class="heroContent">
           <p ref="eyebrowRef" class="heroEyebrow">Frontend Developer Portfolio</p>
           <h1 ref="titleRef" class="heroTitle">
-            嗨我是，
+            嗨你好
             <br />
-            正在打造可維護、可擴充的前端作品。
+            我正在打造可維護、可擴充的前端作品。
           </h1>
           <p ref="textRef" class="heroText">
             目前專注於 Vue 3、Vite、TypeScript 與前端介面設計，
