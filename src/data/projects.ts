@@ -52,7 +52,7 @@ TypeScript 嚴格模式貫穿整個專案，所有 Google Books API 回傳的資
 CI/CD 透過 GitHub Actions 串成完整流程：型別檢查 → 測試 → 建置 → 自動部署至 GitHub Pages。PR 只跑測試不觸發部署，main 才完整執行。`,
     cover: "https://picsum.photos/seed/bookshelf/800/500",
     techStack: ["React 18", "TypeScript", "Vite", "Vitest", "CSS Variables", "GitHub Actions"],
-    demoUrl: "https://github.com/rHyThM3294/bookshelf",
+    demoUrl: "https://rHyThM3294.github.io/bookshelf/",
     repoUrl: "https://github.com/rHyThM3294/bookshelf",
     role: "前端開發",
     period: "2026",
