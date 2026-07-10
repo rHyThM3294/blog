@@ -71,9 +71,9 @@ function emitSelect(key: string, event: Event) {
 .filterPanel {
   margin-top: var(--space6);
   padding: var(--space4);
-  border: 1px solid var(--lineColor);
-  border-radius: var(--radiusLg);
-  background: var(--cardColor);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius2);
+  background: var(--white);
 }
 .filterGrid {
   display: grid;
@@ -87,19 +87,27 @@ function emitSelect(key: string, event: Event) {
 .fieldLabel {
   font-size: var(--font2);
   font-weight: 700;
-  color: var(--wordColor);
+  color: var(--darkWordColor);
 }
 .searchInput,
 .selectInput {
   width: 100%;
   min-height: 44px;
   padding: 0 var(--space3);
-  border: 1px solid var(--lineColor);
-  border-radius: var(--radiusMd);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius1);
   background: #fff;
-  color: var(--wordColor);
+  color: var(--darkWordColor);
   font-size: var(--font3);
+  transition:
+    border-color var(--transitionNormal),
+    box-shadow var(--transitionNormal);
+}
+.searchInput:focus,
+.selectInput:focus {
   outline: none;
+  border-color: var(--mainColor);
+  box-shadow: 0 0 0 3px rgba(61, 90, 90, 0.25);
 }
 .filterActions {
   display: flex;
@@ -111,16 +119,8 @@ function emitSelect(key: string, event: Event) {
     grid-template-columns: repeat(var(--filterColumnCount), minmax(0, 1fr));
     align-items: end;
   }
-  .searchInput,
-  .selectInput {
-    transition:
-      border-color var(--transitionNormal),
-      box-shadow var(--transitionNormal);
-  }
   .searchInput:hover,
-  .selectInput:hover,
-  .searchInput:focus,
-  .selectInput:focus {
+  .selectInput:hover {
     border-color: var(--mainColor);
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
   }

@@ -76,7 +76,7 @@ const year = new Date().getFullYear()
 }
 .copyright {
   font-size: var(--font1);
-  color: var(--secondColor);
+  color: var(--lightWordColor);
 }
 @media (width > 768px) {
   .footerLink:hover {

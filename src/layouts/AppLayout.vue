@@ -14,7 +14,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
@@ -22,6 +22,11 @@ import gsap from 'gsap'
 const isMenuOpen = ref(false)
 const panelRef = ref<HTMLElement | null>(null)
 const headerRef = ref<InstanceType<typeof SiteHeader> | null>(null)
+function handleKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') isMenuOpen.value = false
+}
+onMounted(() => window.addEventListener('keydown', handleKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
 watch(isMenuOpen, async (open) => {
   await nextTick()
   const panel = panelRef.value

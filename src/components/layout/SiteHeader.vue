@@ -12,6 +12,7 @@
         type="button"
         class="menuButton"
         :aria-expanded="isOpen"
+        :aria-label="isOpen ? '關閉選單' : '開啟選單'"
         @click="toggleMenu"
       >
         <!-- 兩個 icon 疊在一起，用 GSAP 控制顯隱 -->
