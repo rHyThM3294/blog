@@ -3,13 +3,12 @@
     <slot />
   </div>
 </template>
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 <style scoped>
-.baseContainer{
+.baseContainer {
   width: min(100% - 32px, var(--containerWidth));
   margin: 0 auto;
 }
-@media(width>768px){}
+@media (width>768px) {
+}
 </style>

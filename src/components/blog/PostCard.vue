@@ -8,21 +8,19 @@
       <span class="postDate">
         {{ post.publishedAt }}
       </span>
-      <span v-if="post.readingTime" class="postReadTime">
-        {{ post.readingTime }}分鐘
-      </span>
+      <span v-if="post.readingTime" class="postReadTime"> {{ post.readingTime }}分鐘 </span>
     </div>
     <span class="readMore">閱讀更多</span>
   </RouterLink>
 </template>
 <script setup lang="ts">
-import type { Post } from '@/types/post';
+import type { Post } from '@/types/post'
 defineProps<{
-  post:Post;
-}>();
+  post: Post
+}>()
 </script>
 <style scoped>
-.postCard{
+.postCard {
   display: block;
   padding: var(--space5);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -32,17 +30,17 @@ defineProps<{
   text-decoration: none;
   cursor: pointer;
 }
-.postTitle{
+.postTitle {
   margin-bottom: var(--space2);
   font-size: var(--font5);
   color: var(--darkWordColor);
 }
-.postSummary{
+.postSummary {
   margin: 0;
   color: var(--lightWordColor);
   line-height: var(--line3);
 }
-.postMeta{
+.postMeta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space3);
@@ -50,22 +48,22 @@ defineProps<{
   font-size: var(--font2);
   color: var(--lightWordColor);
 }
-.readMore{
+.readMore {
   display: inline-block;
   margin-top: var(--space4);
   color: var(--mainColor);
   font-weight: 700;
   transition: var(--transitionNormal);
 }
-@media(width>768px){
-  .postCard{
+@media (width>768px) {
+  .postCard {
     transition: var(--transitionNormal);
   }
-  .postCard:hover{
+  .postCard:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow2);
   }
-  .postCard:hover .readMore{
+  .postCard:hover .readMore {
     color: var(--firstColor);
   }
 }

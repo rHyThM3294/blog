@@ -1,47 +1,42 @@
 <template>
-  <component
-    :is="tag"
-    class="baseButton"
-    :class="[`variant-${variant}`]"
-    v-bind="linkAttrs"
-  >
+  <component :is="tag" class="baseButton" :class="[`variant-${variant}`]" v-bind="linkAttrs">
     <slot />
   </component>
 </template>
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
-    tag?: "button" | "a" | "RouterLink";
-    href?: string;
-    to?: string;
-    variant?: "primary" | "secondary" | "ghost";
+    tag?: 'button' | 'a' | 'RouterLink'
+    href?: string
+    to?: string
+    variant?: 'primary' | 'secondary' | 'ghost'
   }>(),
   {
-    tag: "button",
-    variant: "primary",
-  }
-);
+    tag: 'button',
+    variant: 'primary',
+  },
+)
 const linkAttrs = computed(() => {
-  if(props.tag === "a"){
-    return{
+  if (props.tag === 'a') {
+    return {
       href: props.href,
-      target: "_blank",
-      rel: "noreferrer noopener",
-    };
+      target: '_blank',
+      rel: 'noreferrer noopener',
+    }
   }
-  if (props.tag === "RouterLink") {
-    return{
+  if (props.tag === 'RouterLink') {
+    return {
       to: props.to,
-    };
+    }
   }
-  return{
-    type: "button",
-  };
-});
+  return {
+    type: 'button',
+  }
+})
 </script>
 <style scoped>
-.baseButton{
+.baseButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,30 +49,30 @@ const linkAttrs = computed(() => {
   font-weight: 600;
   transition: var(--transitionNormal);
 }
-.variant-primary{
+.variant-primary {
   background: var(--mainColor);
   color: var(--white);
 }
-.variant-secondary{
+.variant-secondary {
   background: var(--white);
   color: var(--mainColor);
   border-color: var(--secondColor);
 }
-.variant-ghost{
+.variant-ghost {
   background: transparent;
   color: var(--darkWordColor);
 }
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .baseButton:hover {
     transform: translateY(-1px);
   }
-  .variant-primary:hover{
+  .variant-primary:hover {
     background: var(--firstColor);
   }
-  .variant-secondary:hover{
+  .variant-secondary:hover {
     background: var(--backgroundColor);
   }
-  .variant-ghost:hover{
+  .variant-ghost:hover {
     background: rgba(61, 90, 90, 0.08);
   }
 }

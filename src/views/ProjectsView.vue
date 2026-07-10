@@ -18,31 +18,22 @@
             {{ chip.label }} ×
           </button>
         </div>
-      <FilterPanel
-        v-model:searchValue="searchValue"
-        search-label="搜尋作品"
-        search-placeholder="輸入關鍵字，例如 Vue、Vite、Pinia..."
-        :selects="projectSelects"
-        @update:select="handleSelectChange"
-      >
-        <template #actions>
-          <button class="emptyActionButton" @click="resetFilters">
-            清除篩選
-          </button>
-        </template>
-      </FilterPanel>
+        <FilterPanel
+          v-model:search-value="searchValue"
+          search-label="搜尋作品"
+          search-placeholder="輸入關鍵字，例如 Vue、Vite、Pinia..."
+          :selects="projectSelects"
+          @update:select="handleSelectChange"
+        >
+          <template #actions>
+            <button class="emptyActionButton" @click="resetFilters">清除篩選</button>
+          </template>
+        </FilterPanel>
       </BaseContainer>
     </section>
-    <BaseSection
-      title="作品列表"
-      description="整理我目前完成與持續優化中的前端專案"
-    >
+    <BaseSection title="作品列表" description="整理我目前完成與持續優化中的前端專案">
       <div v-if="filteredProjects.length" class="projectGrid">
-        <ProjectCard
-          v-for="project in filteredProjects"
-          :key="project.slug"
-          :project="project"
-        />
+        <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
       </div>
       <EmptyState
         v-else
@@ -50,30 +41,26 @@
         description="可以試著清除篩選，或換一組關鍵字搜尋。"
       >
         <template #action>
-          <button type="button" class="emptyActionButton" @click="resetFilters">
-            清除篩選
-          </button>
+          <button type="button" class="emptyActionButton" @click="resetFilters">清除篩選</button>
         </template>
       </EmptyState>
     </BaseSection>
   </div>
 </template>
 <script setup lang="ts">
-import PageHero from "@/components/common/PageHero.vue";
-import BaseContainer from "@/components/ui/BaseContainer.vue";
-import BaseSection from "@/components/ui/BaseSection.vue";
-import EmptyState from "@/components/common/EmptyState.vue";
-import FilterPanel from "@/components/common/FilterPanel.vue";
-import ProjectCard from "@/components/project/ProjectCard.vue";
-import { useFilter } from "@/composables/useFilter";
-import { projects } from "@/data/projects";
+import PageHero from '@/components/common/PageHero.vue'
+import BaseContainer from '@/components/ui/BaseContainer.vue'
+import BaseSection from '@/components/ui/BaseSection.vue'
+import EmptyState from '@/components/common/EmptyState.vue'
+import FilterPanel from '@/components/common/FilterPanel.vue'
+import ProjectCard from '@/components/project/ProjectCard.vue'
+import { useFilter } from '@/composables/useFilter'
+import { projects } from '@/data/projects'
 // 🔹 options
 const techOptions = () => {
-  const set = new Set(
-    projects.flatMap((p) => p.techStack ?? [])
-  )
-    return [
-    { label: "全部", value: "all" },
+  const set = new Set(projects.flatMap((p) => p.techStack ?? []))
+  return [
+    { label: '全部', value: 'all' },
     ...Array.from(set).map((tech) => ({
       label: tech,
       value: tech,
@@ -83,22 +70,22 @@ const techOptions = () => {
 // 只呼叫一次 useFilter
 const filter = useFilter({
   data: projects,
-  searchFields: ["title", "summary", "description", "techStack"],
+  searchFields: ['title', 'summary', 'description', 'techStack'],
   selectConfigs: [
     {
-      key: "tech",
-      label:"技術",
-      defaultValue: "all",
+      key: 'tech',
+      label: '技術',
+      defaultValue: 'all',
       getOptions: techOptions,
       filterFn: (project, value) => {
-        if (value === "all") return true
+        if (value === 'all') return true
         return project.techStack?.includes(value) ?? false
       },
     },
   ],
 })
 // 解構
-const{
+const {
   searchValue,
   selects: projectSelects,
   filtered: filteredProjects,
@@ -109,40 +96,37 @@ const{
 // 型別(從 filter 拿)
 type SelectKey = typeof filter._types.SelectKey
 // handler(完全型別安全)
-function handleSelectChange(payload: {
-  key: SelectKey
-  value: string
-}){
+function handleSelectChange(payload: { key: SelectKey; value: string }) {
   setSelect(payload.key, payload.value)
 }
-function removeFilter(chip:{ key:SelectKey;value:string }){
-  if(chip.key === "keyword"){
-    searchValue.value = ""
+function removeFilter(chip: { key: SelectKey; value: string }) {
+  if (chip.key === 'keyword') {
+    searchValue.value = ''
     return
   }
-  setSelect(chip.key,"all")
+  setSelect(chip.key, 'all')
 }
 </script>
 
 <style scoped>
-.projectsView{
+.projectsView {
   padding-top: var(--space8);
 }
-.projectFilterSection{
+.projectFilterSection {
   padding: var(--space4) 0 var(--space6);
 }
-.projectGrid{
+.projectGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space5);
 }
-.filterChips{
+.filterChips {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space2);
   margin-bottom: var(--space3);
 }
-.chip{
+.chip {
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
@@ -152,7 +136,7 @@ function removeFilter(chip:{ key:SelectKey;value:string }){
   cursor: pointer;
   transition: var(--transitionNormal);
 }
-.emptyActionButton{
+.emptyActionButton {
   min-height: 44px;
   padding: 0 var(--space4);
   border: 0;
@@ -163,17 +147,17 @@ function removeFilter(chip:{ key:SelectKey;value:string }){
   cursor: pointer;
   transition: var(--transitionNormal);
 }
-@media(width>768px){
-  .projectsView{
+@media (width>768px) {
+  .projectsView {
     padding-top: var(--space10);
   }
-  .projectGrid{
+  .projectGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .chip:hover{
+  .chip:hover {
     background: rgba(0, 0, 0, 0.12);
   }
-  .emptyActionButton:hover{
+  .emptyActionButton:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow2);
   }

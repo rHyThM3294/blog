@@ -5,7 +5,8 @@ export const mockPosts: Post[] = [
     id: 1,
     title: '從田野調查到上線：清晨農鋪的 UX 研究流程',
     slug: 'morning-farm-ux-research',
-    summary: '清晨農鋪不是先開始切版，而是先做研究。這篇記錄我們怎麼透過田野調查與專訪，整理出設計方向，再回頭規劃功能與頁面。',
+    summary:
+      '清晨農鋪不是先開始切版，而是先做研究。這篇記錄我們怎麼透過田野調查與專訪，整理出設計方向，再回頭規劃功能與頁面。',
     category: 'UX',
     tags: ['UX Research', '田野調查', '使用者訪談', '清晨農鋪'],
     publishedAt: '2026-04-20',
@@ -56,7 +57,8 @@ export const mockPosts: Post[] = [
     id: 2,
     title: 'Pinia 多聊天室狀態管理：AI Chat Hub 的設計思路',
     slug: 'pinia-multi-chat-state',
-    summary: '在 AI Chat Hub 裡，每個聊天室都是獨立的狀態單位，切換時不能互相干擾，還要支援持久化。這篇整理我在 chat.store 裡的設計思路與幾個遇到的坑。',
+    summary:
+      '在 AI Chat Hub 裡，每個聊天室都是獨立的狀態單位，切換時不能互相干擾，還要支援持久化。這篇整理我在 chat.store 裡的設計思路與幾個遇到的坑。',
     category: 'Vue',
     tags: ['Vue3', 'Pinia', 'State Management', 'AI Chat Hub'],
     publishedAt: '2026-04-28',
@@ -178,7 +180,8 @@ watch(
     id: 3,
     title: '用 Vercel Serverless Function 安全轉發 Groq API',
     slug: 'vercel-serverless-groq-proxy',
-    summary: '前端直接串接 AI API 最大的問題是 API Key 會暴露在瀏覽器裡。這篇整理我在 AI Chat Hub 裡用 Vercel Serverless Function 做伺服端代理，以及處理 SSE 串流的細節。',
+    summary:
+      '前端直接串接 AI API 最大的問題是 API Key 會暴露在瀏覽器裡。這篇整理我在 AI Chat Hub 裡用 Vercel Serverless Function 做伺服端代理，以及處理 SSE 串流的細節。',
     category: 'Backend',
     tags: ['Vercel', 'Serverless', 'Groq', 'SSE', 'AI Chat Hub'],
     publishedAt: '2026-05-02',
@@ -300,7 +303,8 @@ Vercel Serverless Function 做 API 代理的整體體驗很順，最主要的收
     id: 4,
     title: '元件邊界怎麼判斷？在清晨農鋪學到的事',
     slug: 'component-boundary-morning-farm',
-    summary: '清晨農鋪有 14 個路由頁面，元件拆得太細或太粗都會是問題。這篇整理我在這個專案裡思考元件邊界的方式，以及幾個具體的拆分決策。',
+    summary:
+      '清晨農鋪有 14 個路由頁面，元件拆得太細或太粗都會是問題。這篇整理我在這個專案裡思考元件邊界的方式，以及幾個具體的拆分決策。',
     category: 'Vue',
     tags: ['Vue3', '元件設計', 'Props', '清晨農鋪'],
     publishedAt: '2026-05-05',

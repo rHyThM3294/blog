@@ -37,7 +37,7 @@ export function useDateFormat() {
     if (seconds < 3600) return `${Math.floor(seconds / 60)} 分鐘前`
     if (seconds < 86400) return `${Math.floor(seconds / 3600)} 小時前`
     if (seconds < 2592000) return `${Math.floor(seconds / 86400)} 天前`
-    
+
     return formatDateZH(date)
   }
 
@@ -46,7 +46,7 @@ export function useDateFormat() {
    */
   const getDateRange = (type: 'week' | 'month' | 'year') => {
     const now = new Date()
-    let start = new Date()
+    const start = new Date()
 
     switch (type) {
       case 'week':

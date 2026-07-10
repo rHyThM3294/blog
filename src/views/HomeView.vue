@@ -26,11 +26,7 @@
       description="挑幾個目前比較有代表性的作品，展示開發流程、介面規劃與功能實作。"
     >
       <div ref="projectGridRef" class="projectGrid">
-        <ProjectCard
-          v-for="project in featuredProjects"
-          :key="project.id"
-          :project="project"
-        />
+        <ProjectCard v-for="project in featuredProjects" :key="project.id" :project="project" />
       </div>
       <div class="sectionAction">
         <BaseButton tag="RouterLink" to="/projects" variant="ghost">查看更多作品</BaseButton>
@@ -43,16 +39,10 @@
       compact
     >
       <div ref="blogListRef" class="blogList">
-        <PostCard
-          v-for="post in latestPosts"
-          :key="post.id"
-          :post="post"
-        />
+        <PostCard v-for="post in latestPosts" :key="post.id" :post="post" />
       </div>
       <div class="sectionAction">
-        <BaseButton tag="RouterLink" to="/blog" variant="ghost">
-          查看更多文章
-        </BaseButton>
+        <BaseButton tag="RouterLink" to="/blog" variant="ghost"> 查看更多文章 </BaseButton>
       </div>
     </BaseSection>
     <BaseSection
@@ -63,8 +53,13 @@
     >
       <div class="aboutCard">
         <div class="aboutContent">
-          <p class="aboutText">我目前主要使用 Vue 3 + Vite 進行開發，熟悉 component 拆分、router 規劃、假資料建模、RWD 切版，也持續練習讓專案從單純頁面，提升成更完整的前端作品。</p>
-          <p class="aboutText">這個網站不只是作品展示頁，也會逐步擴充成我的個人品牌網站，未來預計加入更多文章、專案整理與技術筆記。</p>
+          <p class="aboutText">
+            我目前主要使用 Vue 3 + Vite 進行開發，熟悉 component 拆分、router 規劃、假資料建模、RWD
+            切版，也持續練習讓專案從單純頁面，提升成更完整的前端作品。
+          </p>
+          <p class="aboutText">
+            這個網站不只是作品展示頁，也會逐步擴充成我的個人品牌網站，未來預計加入更多文章、專案整理與技術筆記。
+          </p>
         </div>
       </div>
     </BaseSection>
@@ -79,12 +74,8 @@
             </p>
           </div>
           <div class="ctaActions">
-            <BaseButton tag="RouterLink" to="/projects">
-              前往作品集
-            </BaseButton>
-            <BaseButton tag="RouterLink" to="/about" variant="secondary">
-              了解更多
-            </BaseButton>
+            <BaseButton tag="RouterLink" to="/projects"> 前往作品集 </BaseButton>
+            <BaseButton tag="RouterLink" to="/about" variant="secondary"> 了解更多 </BaseButton>
           </div>
         </div>
       </BaseContainer>
@@ -92,117 +83,117 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import gsap from "gsap";
-import BaseContainer from "@/components/ui/BaseContainer.vue";
-import BaseSection from "@/components/ui/BaseSection.vue";
-import BaseButton from "@/components/ui/BaseButton.vue";
-import ProjectCard from "@/components/project/ProjectCard.vue";
-import PostCard from "@/components/blog/PostCard.vue";
-import { projects } from "@/data/projects";
-import { mockPosts } from "@/data/mockPosts";
-import type { Project } from "@/types/project";
-import type { Post } from "@/types/post";
-import { useScrollReveal } from "@/composables/useScrollReveal";
+import { ref, computed, onMounted } from 'vue'
+import gsap from 'gsap'
+import BaseContainer from '@/components/ui/BaseContainer.vue'
+import BaseSection from '@/components/ui/BaseSection.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import ProjectCard from '@/components/project/ProjectCard.vue'
+import PostCard from '@/components/blog/PostCard.vue'
+import { projects } from '@/data/projects'
+import { mockPosts } from '@/data/mockPosts'
+import type { Project } from '@/types/project'
+import type { Post } from '@/types/post'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 // --- Hero 進場動畫 ---
-const eyebrowRef = ref<HTMLElement | null>(null);
-const titleRef   = ref<HTMLElement | null>(null);
-const textRef    = ref<HTMLElement | null>(null);
-const actionsRef = ref<HTMLElement | null>(null);
+const eyebrowRef = ref<HTMLElement | null>(null)
+const titleRef = ref<HTMLElement | null>(null)
+const textRef = ref<HTMLElement | null>(null)
+const actionsRef = ref<HTMLElement | null>(null)
 onMounted(() => {
-  gsap.from(
-    [eyebrowRef.value, titleRef.value, textRef.value, actionsRef.value],
-    {
-      y: 24,
-      opacity: 0,
-      duration: 0.7,
-      ease: "power3.out",
-      stagger: 0.12,
-      clearProps: "all",
-    }
-  );
-});
+  gsap.from([eyebrowRef.value, titleRef.value, textRef.value, actionsRef.value], {
+    y: 24,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power3.out',
+    stagger: 0.12,
+    clearProps: 'all',
+  })
+})
 // --- ScrollTrigger：卡片 grid stagger 飛入 ---
-const projectGridRef = ref<HTMLElement | null>(null);
-const blogListRef    = ref<HTMLElement | null>(null);
+const projectGridRef = ref<HTMLElement | null>(null)
+const blogListRef = ref<HTMLElement | null>(null)
 // ':scope > *' 選取 grid 的直接子元素，捲到該區塊時依序錯開 0.1s 飛入
-useScrollReveal(projectGridRef, { childSelector: ":scope > *", stagger: 0.1 });
-useScrollReveal(blogListRef,    { childSelector: ":scope > *", stagger: 0.1 });
+useScrollReveal(projectGridRef, { childSelector: ':scope > *', stagger: 0.1 })
+useScrollReveal(blogListRef, { childSelector: ':scope > *', stagger: 0.1 })
 // --- 資料 ---
-const featuredProjects = computed<Project[]>(() => projects.slice(0, 3));
-const latestPosts      = computed<Post[]>(() => mockPosts.slice(0, 3));
+const featuredProjects = computed<Project[]>(() => projects.slice(0, 3))
+const latestPosts = computed<Post[]>(() => mockPosts.slice(0, 3))
 </script>
 <style scoped>
-.homeView{
+.homeView {
   padding-top: var(--space8);
 }
-.heroSection{
+.heroSection {
   padding: var(--space12) 0 var(--space10);
 }
-.heroContent{
+.heroContent {
   display: flex;
   flex-direction: column;
   gap: var(--space5);
 }
-.heroEyebrow{
+.heroEyebrow {
   font-size: var(--font2);
   font-weight: 700;
   color: var(--firstColor);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.heroTitle{
+.heroTitle {
   font-size: clamp(var(--font8), 10vw, var(--font11));
   line-height: var(--line1);
   color: var(--darkWordColor);
 }
-.heroText{
+.heroText {
   max-width: 680px;
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.heroActions{
+.heroActions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space3);
   padding-top: var(--space2);
 }
-.projectSection,.blogSection,.aboutSection{
+.projectSection,
+.blogSection,
+.aboutSection {
   scroll-margin-top: 96px;
 }
-.projectGrid,.blogList{
+.projectGrid,
+.blogList {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space5);
 }
-.aboutCard{
+.aboutCard {
   padding: var(--space6);
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius2);
   box-shadow: var(--shadow1);
 }
-.aboutContent{
+.aboutContent {
   display: flex;
   flex-direction: column;
   gap: var(--space4);
   max-width: 760px;
 }
-.aboutText{
+.aboutText {
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.sectionAction{
+.sectionAction {
   display: flex;
   justify-content: flex-start;
   margin-top: var(--space6);
 }
-.ctaSection{
+.ctaSection {
   padding: var(--space8) 0 var(--space12);
 }
-.ctaCard{
+.ctaCard {
   display: flex;
   flex-direction: column;
   gap: var(--space6);
@@ -212,53 +203,54 @@ const latestPosts      = computed<Post[]>(() => mockPosts.slice(0, 3));
   color: var(--white);
   box-shadow: var(--shadow2);
 }
-.ctaContent{
+.ctaContent {
   display: flex;
   flex-direction: column;
   gap: var(--space3);
 }
-.ctaEyebrow{
+.ctaEyebrow {
   font-size: var(--font2);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.9;
 }
-.ctaTitle{
+.ctaTitle {
   font-size: clamp(var(--font7), 7vw, var(--font9));
   line-height: var(--line1);
 }
-.ctaText{
+.ctaText {
   max-width: 680px;
   font-size: var(--font3);
   line-height: var(--line3);
   opacity: 0.92;
 }
-.ctaActions{
+.ctaActions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space3);
 }
-@media(min-width: 768px){
-  .homeView{
+@media (min-width: 768px) {
+  .homeView {
     padding-top: var(--space10);
   }
-  .heroSection{
+  .heroSection {
     padding: var(--space16) 0 var(--space12);
   }
-  .heroText{
+  .heroText {
     font-size: var(--font4);
   }
-  .projectGrid,.blogList{
+  .projectGrid,
+  .blogList {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .ctaCard{
+  .ctaCard {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: var(--space8);
   }
-  .ctaActions{
+  .ctaActions {
     justify-content: flex-end;
   }
 }

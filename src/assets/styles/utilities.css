@@ -1,35 +1,35 @@
-.container{
+.container {
   width: min(100% - 32px, var(--containerWidth));
   margin: 0 auto;
 }
-.section{
+.section {
   padding: var(--space16) 0;
 }
-.sectionSm{
+.sectionSm {
   padding: var(--space12) 0;
 }
-.sectionLg{
+.sectionLg {
   padding: var(--space20) 0;
 }
-.sectionTitle{
+.sectionTitle {
   font-size: clamp(var(--font7), 4vw, var(--font10));
   line-height: var(--line1);
   color: var(--darkWordColor);
   font-weight: 700;
 }
-.sectionDesc{
+.sectionDesc {
   margin-top: var(--space4);
   font-size: var(--font4);
   line-height: var(--line2);
   color: var(--lightWordColor);
 }
-.surface{
+.surface {
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius2);
   box-shadow: var(--shadow1);
 }
-.gridAuto{
+.gridAuto {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space6);
@@ -46,15 +46,15 @@
 .stack10 > * + * {
   margin-top: var(--space10);
 }
-.textLight{
+.textLight {
   color: var(--lightWordColor);
 }
-.textDark{
+.textDark {
   color: var(--darkWordColor);
 }
-.textMain{
+.textMain {
   color: var(--mainColor);
 }
-.bgSoft{
+.bgSoft {
   background: var(--backgroundColor);
 }

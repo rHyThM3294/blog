@@ -1,10 +1,10 @@
 // src/stores/editor.store.ts
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { EditorDocument,GenerateArticlePayload,PromptMode, }from '@/types/editor'
-function createEmptyDocument():EditorDocument{
+import type { EditorDocument, GenerateArticlePayload, PromptMode } from '@/types/editor'
+function createEmptyDocument(): EditorDocument {
   const now = new Date().toISOString()
-  return{
+  return {
     id: crypto.randomUUID(),
     title: '未命名文章',
     content: '',
@@ -23,24 +23,24 @@ export const useEditorStore = defineStore('editor', () => {
   const activeDocument = computed(() => {
     return documents.value.find((doc) => doc.id === activeDocumentId.value) ?? null
   })
-  function setActiveDocument(id: string){
+  function setActiveDocument(id: string) {
     activeDocumentId.value = id
   }
-  function createDocument(){
+  function createDocument() {
     const newDocument = createEmptyDocument()
     documents.value.unshift(newDocument)
     activeDocumentId.value = newDocument.id
   }
-  function deleteDocument(id: string){
+  function deleteDocument(id: string) {
     documents.value = documents.value.filter((doc) => doc.id !== id)
-    if (activeDocumentId.value === id){
+    if (activeDocumentId.value === id) {
       activeDocumentId.value = documents.value[0]?.id ?? null
     }
-    if (documents.value.length === 0){
+    if (documents.value.length === 0) {
       createDocument()
     }
   }
-  function updateActiveDocument(payload: Partial<EditorDocument>){
+  function updateActiveDocument(payload: Partial<EditorDocument>) {
     const current = activeDocument.value
     if (!current) return
     const index = documents.value.findIndex((doc) => doc.id === current.id)
@@ -51,10 +51,10 @@ export const useEditorStore = defineStore('editor', () => {
       updatedAt: new Date().toISOString(),
     }
   }
-  function setPromptMode(mode: PromptMode){
+  function setPromptMode(mode: PromptMode) {
     promptMode.value = mode
   }
-  async function generateArticle(_payload: GenerateArticlePayload){
+  async function generateArticle(_payload: GenerateArticlePayload) {
     generating.value = true
     streamingText.value = ''
     try {
@@ -66,12 +66,12 @@ export const useEditorStore = defineStore('editor', () => {
         content: mockContent,
         summary: '這是一篇由 AI 產生的示範摘要。',
       })
-    }finally{
+    } finally {
       generating.value = false
       streamingText.value = ''
     }
   }
-  return{
+  return {
     documents,
     activeDocumentId,
     generating,

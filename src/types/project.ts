@@ -1,15 +1,15 @@
 export interface Project {
-  id: number | string;
-  title: string;
-  slug: string;
-  summary: string;
-  description?: string;
-  content?: string;
-  cover?: string;
-  techStack?: string[];
-  demoUrl?: string;
-  repoUrl?: string;
-  role?: string;
-  period?: string;
-  featured?: boolean;  // 加這行
+  id: number | string
+  title: string
+  slug: string
+  summary: string
+  description?: string
+  content?: string
+  cover?: string
+  techStack?: string[]
+  demoUrl?: string
+  repoUrl?: string
+  role?: string
+  period?: string
+  featured?: boolean // 加這行
 }

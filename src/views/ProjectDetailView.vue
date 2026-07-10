@@ -54,7 +54,7 @@
             <div class="textBlock">
               <h2 class="blockTitle">內容說明</h2>
               <p class="bodyText">
-                {{ project.content || "目前尚未補上更完整的專案內容，之後會持續整理。"}}
+                {{ project.content || '目前尚未補上更完整的專案內容，之後會持續整理。' }}
               </p>
             </div>
           </article>
@@ -62,26 +62,16 @@
             <div class="infoGroup">
               <p class="infoTitle">技術堆疊</p>
               <ul v-if="project.techStack?.length" class="tagList">
-                <li
-                  v-for="tech in project.techStack"
-                  :key="tech"
-                  class="tagItem"
-                >
+                <li v-for="tech in project.techStack" :key="tech" class="tagItem">
                   {{ tech }}
                 </li>
               </ul>
-              <p v-else class="infoText">
-                尚未提供技術標籤
-              </p>
+              <p v-else class="infoText">尚未提供技術標籤</p>
             </div>
             <div class="infoGroup">
               <p class="infoTitle">相關連結</p>
               <div class="actionList">
-                <BaseButton
-                  v-if="project.demoUrl"
-                  tag="a"
-                  :href="project.demoUrl"
-                >
+                <BaseButton v-if="project.demoUrl" tag="a" :href="project.demoUrl">
                   查看 Demo
                 </BaseButton>
                 <BaseButton
@@ -92,7 +82,9 @@
                 >
                   查看 Repo
                 </BaseButton>
-                <p v-if="!project.demoUrl && !project.repoUrl" class="infoText">目前尚未提供外部連結</p>
+                <p v-if="!project.demoUrl && !project.repoUrl" class="infoText">
+                  目前尚未提供外部連結
+                </p>
               </div>
             </div>
           </aside>
@@ -100,95 +92,92 @@
       </BaseSection>
     </template>
     <BaseSection v-else class="emptySection" compact>
-      <EmptyState
-        title="找不到這個作品"
-        description="可能是網址有誤，或這筆作品資料目前不存在。"
-      >
+      <EmptyState title="找不到這個作品" description="可能是網址有誤，或這筆作品資料目前不存在。">
         <template #action>
-          <BaseButton tag="RouterLink" to="/projects">
-            回到作品列表
-          </BaseButton>
+          <BaseButton tag="RouterLink" to="/projects"> 回到作品列表 </BaseButton>
         </template>
       </EmptyState>
     </BaseSection>
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import BaseContainer from "@/components/ui/BaseContainer.vue";
-import BaseSection from "@/components/ui/BaseSection.vue";
-import BaseButton from "@/components/ui/BaseButton.vue";
-import EmptyState from "@/components/common/EmptyState.vue";
-import { projects } from "@/data/projects";
-import type { Project } from "@/types/project";
-const route = useRoute();
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import BaseContainer from '@/components/ui/BaseContainer.vue'
+import BaseSection from '@/components/ui/BaseSection.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import EmptyState from '@/components/common/EmptyState.vue'
+import { projects } from '@/data/projects'
+import type { Project } from '@/types/project'
+const route = useRoute()
 const project = computed<Project | undefined>(() => {
-  const slug = String(route.params.slug || "");
-  return projects.find((item) => item.slug === slug);
-});
+  const slug = String(route.params.slug || '')
+  return projects.find((item) => item.slug === slug)
+})
 </script>
 <style scoped>
-.projectDetailView{
+.projectDetailView {
   padding-top: var(--space8);
 }
-.detailHero{
+.detailHero {
   padding: var(--space12) 0 var(--space8);
 }
-.heroContent{
+.heroContent {
   display: flex;
   flex-direction: column;
   gap: var(--space4);
 }
-.heroEyebrow{
+.heroEyebrow {
   font-size: var(--font2);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--firstColor);
 }
-.heroTitle{
+.heroTitle {
   font-size: clamp(var(--font8), 10vw, var(--font10));
   line-height: var(--line1);
   color: var(--darkWordColor);
 }
-.heroText{
+.heroText {
   max-width: 760px;
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.metaRow{
+.metaRow {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space3);
 }
-.metaItem{
+.metaItem {
   padding: 6px 12px;
   border-radius: 999px;
   background: rgba(61, 90, 90, 0.08);
   font-size: var(--font2);
   color: var(--mainColor);
 }
-.coverSection{
+.coverSection {
   padding-bottom: var(--space8);
 }
-.coverCard,.mainCard,.sideCard{
+.coverCard,
+.mainCard,
+.sideCard {
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius2);
   box-shadow: var(--shadow1);
   transition: var(--transitionNormal);
 }
-.coverCard{
+.coverCard {
   overflow: hidden;
 }
-.coverImage{
+.coverImage {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.coverPlaceholder{
+.coverPlaceholder {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,78 +189,80 @@ const project = computed<Project | undefined>(() => {
   font-weight: 700;
   text-align: center;
 }
-.contentLayout{
+.contentLayout {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space5);
 }
 .mainCard,
-.sideCard{
+.sideCard {
   padding: var(--space6);
 }
-.textBlock + .textBlock{
+.textBlock + .textBlock {
   margin-top: var(--space6);
 }
-.blockTitle{
+.blockTitle {
   font-size: var(--font5);
   line-height: var(--line1);
   color: var(--darkWordColor);
 }
-.bodyText{
+.bodyText {
   margin-top: var(--space3);
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
   white-space: pre-line;
 }
-.infoGroup + .infoGroup{
+.infoGroup + .infoGroup {
   margin-top: var(--space6);
 }
-.infoTitle{
+.infoTitle {
   font-size: var(--font4);
   font-weight: 700;
   color: var(--darkWordColor);
 }
-.infoText{
+.infoText {
   margin-top: var(--space3);
   font-size: var(--font3);
   line-height: var(--line2);
   color: var(--lightWordColor);
 }
-.tagList{
+.tagList {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space2);
   margin-top: var(--space3);
 }
-.tagItem{
+.tagItem {
   padding: 6px 12px;
   border-radius: 999px;
   background: rgba(61, 90, 90, 0.08);
   font-size: var(--font2);
   color: var(--mainColor);
 }
-.actionList{
+.actionList {
   display: flex;
   flex-direction: column;
   gap: var(--space3);
   margin-top: var(--space3);
 }
-@media(min-width: 768px){
-  .projectDetailView{
+@media (min-width: 768px) {
+  .projectDetailView {
     padding-top: var(--space10);
   }
-  .detailHero{
+  .detailHero {
     padding: var(--space16) 0 var(--space10);
   }
-  .heroText{
+  .heroText {
     font-size: var(--font4);
   }
-  .contentLayout{
+  .contentLayout {
     grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
     align-items: start;
   }
-  .coverCard:hover,.mainCard:hover,.sideCard:hover {
+  .coverCard:hover,
+  .mainCard:hover,
+  .sideCard:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow2);
   }

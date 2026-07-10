@@ -20,7 +20,7 @@ export function useLocalStorage<T>(key: string, defaultValue: T) {
     (newVal) => {
       saveToStorage(key, newVal)
     },
-    { deep: true }
+    { deep: true },
   )
 
   return {

@@ -4,9 +4,7 @@
       <div class="footerInner">
         <div class="footerBrand">
           <p class="footerTitle">Titanium.dev</p>
-          <p class="footerText">
-            Portfolio & Blog built with Vue 3 + Vite + TypeScript
-          </p>
+          <p class="footerText">Portfolio & Blog built with Vue 3 + Vite + TypeScript</p>
         </div>
         <nav class="footerNav" aria-label="頁尾導覽">
           <RouterLink
@@ -33,7 +31,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { mainNavItems } from '@/config/nav'
-const footerNavItems = mainNavItems.filter(item => item.showInFooter)
+const footerNavItems = mainNavItems.filter((item) => item.showInFooter)
 const year = new Date().getFullYear()
 </script>
 <style scoped>

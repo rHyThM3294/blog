@@ -1,5 +1,5 @@
-import { ref, watch, type Ref } from "vue"
-export function useDebounce<T>(value: Ref<T>, delay = 300){
+import { ref, watch, type Ref } from 'vue'
+export function useDebounce<T>(value: Ref<T>, delay = 300) {
   const debounced = ref(value.value) as Ref<T>
   let timer: number | undefined
   watch(value, (newVal) => {

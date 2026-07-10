@@ -16,38 +16,38 @@
 </template>
 <script setup lang="ts">
 defineProps<{
-  title: string;
-  description?: string;
-}>();
+  title: string
+  description?: string
+}>()
 </script>
 <style scoped>
-.emptyState{
+.emptyState {
   padding: var(--space8);
   border-radius: var(--radius2);
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: var(--shadow1);
 }
-.emptyContent{
+.emptyContent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space3);
 }
-.iconWrap{
+.iconWrap {
   margin-bottom: var(--space2);
 }
-.emptyTitle{
+.emptyTitle {
   font-size: var(--font5);
   font-weight: 700;
   color: var(--darkWordColor);
 }
-.emptyText{
+.emptyText {
   font-size: var(--font3);
   line-height: var(--line2);
   color: var(--lightWordColor);
 }
-.actionWrap{
+.actionWrap {
   margin-top: var(--space4);
 }
 </style>

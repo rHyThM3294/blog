@@ -1,6 +1,6 @@
-import { computed, ref, type Ref, watch, nextTick, onMounted } from "vue"
-import { useRoute, useRouter } from "vue-router"
-import { useDebounce } from "@/composables/useDebounce"
+import { computed, ref, type Ref, watch, nextTick, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useDebounce } from '@/composables/useDebounce'
 
 /* ========================
    型別
@@ -29,10 +29,7 @@ interface SortConfig<T> {
    主 composable
 ======================== */
 
-export function useFilter<
-  T,
-  TConfigs extends readonly BaseSelectConfig<T, any>[]
->(options: {
+export function useFilter<T, TConfigs extends readonly BaseSelectConfig<T, string>[]>(options: {
   data: T[]
   searchFields: (keyof T)[]
   selectConfigs: TConfigs
@@ -45,24 +42,21 @@ export function useFilter<
      基本狀態
   ======================== */
 
-  const searchValue = ref("")
+  const searchValue = ref('')
   const debouncedSearch = useDebounce(searchValue, 300)
 
-  type SelectKey = TConfigs[number]["key"]
+  type SelectKey = TConfigs[number]['key']
 
   const selectState = Object.fromEntries(
-    options.selectConfigs.map((config) => [
-      config.key,
-      ref(config.defaultValue),
-    ])
+    options.selectConfigs.map((config) => [config.key, ref(config.defaultValue)]),
   ) as {
     [K in SelectKey]: Ref<string>
   }
-  const sortKey = ref(options.sortConfigs?.[0]?.key || "")
+  const sortKey = ref(options.sortConfigs?.[0]?.key || '')
   const currentPage = ref(1)
   const pageSize = ref(6)
   onMounted(() => {
-    searchValue.value = (route.query.keyword as string) || ""
+    searchValue.value = (route.query.keyword as string) || ''
     options.selectConfigs.forEach((config) => {
       const key = config.key as SelectKey
       const queryValue = route.query[key] as string
@@ -83,18 +77,14 @@ export function useFilter<
         modelValue: selectState[key].value,
         options: config.getOptions(),
       }
-    })
+    }),
   )
   const filtered = computed(() => {
     let result = options.data.filter((item) => {
       const keyword = debouncedSearch.value.toLowerCase()
       const matchKeyword =
         !keyword ||
-        options.searchFields.some((field) =>
-          String(item[field])
-            .toLowerCase()
-            .includes(keyword)
-        )
+        options.searchFields.some((field) => String(item[field]).toLowerCase().includes(keyword))
       if (!matchKeyword) return false
 
       return options.selectConfigs.every((config) => {
@@ -105,9 +95,7 @@ export function useFilter<
       })
     })
     if (options.sortConfigs && sortKey.value) {
-      const sorter = options.sortConfigs.find(
-        (s) => s.key === sortKey.value
-      )
+      const sorter = options.sortConfigs.find((s) => s.key === sortKey.value)
       if (sorter) {
         result = [...result].sort(sorter.compare)
       }
@@ -138,35 +126,32 @@ export function useFilter<
     (query) => {
       isFromRoute.value = true
 
-      searchValue.value = (query.keyword as string) || ""
+      searchValue.value = (query.keyword as string) || ''
       // ...其他同步
 
       nextTick(() => {
         isFromRoute.value = false
       })
-    }
+    },
   )
 
-  watch(
-    [searchValue, ...Object.values(selectState), sortKey, currentPage],
-    () => {
-      if (isFromRoute.value) return
+  watch([searchValue, ...Object.values(selectState), sortKey, currentPage], () => {
+    if (isFromRoute.value) return
 
-      const query: Record<string, string> = {}
-      if (searchValue.value) query.keyword = searchValue.value
-      options.selectConfigs.forEach((config) => {
-        const key = config.key as SelectKey
-        const value = selectState[key].value
-        if (value !== config.defaultValue) {
-          query[key as string] = value
-        }
-      })
-      if (sortKey.value) query.sort = sortKey.value
-      if (currentPage.value > 1) query.page = String(currentPage.value)
+    const query: Record<string, string> = {}
+    if (searchValue.value) query.keyword = searchValue.value
+    options.selectConfigs.forEach((config) => {
+      const key = config.key as SelectKey
+      const value = selectState[key].value
+      if (value !== config.defaultValue) {
+        query[key as string] = value
+      }
+    })
+    if (sortKey.value) query.sort = sortKey.value
+    if (currentPage.value > 1) query.page = String(currentPage.value)
 
-      router.replace({ query })
-    }
-  )
+    router.replace({ query })
+  })
 
   /* ========================
      actions
@@ -184,7 +169,7 @@ export function useFilter<
   }
 
   function resetFilters() {
-    searchValue.value = ""
+    searchValue.value = ''
     options.selectConfigs.forEach((config) => {
       const key = config.key as SelectKey
       selectState[key].value = config.defaultValue
@@ -218,8 +203,8 @@ export function useFilter<
 
     if (debouncedSearch.value) {
       result.push({
-        key: "keyword" as SelectKey,
-        label: "搜尋",
+        key: 'keyword' as SelectKey,
+        label: '搜尋',
         value: debouncedSearch.value,
       })
     }
@@ -254,7 +239,7 @@ export function useFilter<
     resetFilters,
 
     _types: {} as {
-      SelectKey: TConfigs[number]["key"]
-    }
+      SelectKey: TConfigs[number]['key']
+    },
   }
 }

@@ -13,8 +13,16 @@
     >
       <div class="introCard">
         <div class="introContent">
-          <p class="introText">我主要使用 Vue 3、Vite 與 TypeScript 開發前端應用，也具備 React 與 Next.js 的實作經驗。從需求拆解、介面切版、資料建模，到元件設計與狀態管理，我習慣把每個作品當成完整產品來規劃，並透過 GitHub Actions 建立自動化部署流程。</p>
-          <p class="introText">比起把畫面做出來，我更在意程式碼的結構與可維護性——包含元件的 Props 設計、邏輯拆分為 Composables／Custom Hooks，以及必要時搭配單元測試驗證行為，讓專案在規模擴大後依然容易維護與擴充。</p>
+          <p class="introText">
+            我主要使用 Vue 3、Vite 與 TypeScript 開發前端應用，也具備 React 與 Next.js
+            的實作經驗。從需求拆解、介面切版、資料建模，到元件設計與狀態管理，我習慣把每個作品當成完整產品來規劃，並透過
+            GitHub Actions 建立自動化部署流程。
+          </p>
+          <p class="introText">
+            比起把畫面做出來，我更在意程式碼的結構與可維護性——包含元件的 Props 設計、邏輯拆分為
+            Composables／Custom
+            Hooks，以及必要時搭配單元測試驗證行為，讓專案在規模擴大後依然容易維護與擴充。
+          </p>
         </div>
       </div>
     </BaseSection>
@@ -27,15 +35,24 @@
       <div class="skillGrid">
         <article class="skillCard">
           <h3 class="skillTitle">前端框架實作</h3>
-          <p class="skillText">熟悉 Vue 3 元件拆分、Props / Emits、Composition API 與 Vue Router 路由規劃，並具備 React + Next.js 的實作經驗。</p>
+          <p class="skillText">
+            熟悉 Vue 3 元件拆分、Props / Emits、Composition API 與 Vue Router 路由規劃，並具備 React
+            + Next.js 的實作經驗。
+          </p>
         </article>
         <article class="skillCard">
           <h3 class="skillTitle">介面切版與 RWD</h3>
-          <p class="skillText">採用 Mobile First 策略設計版面，重視留白、資訊層級與元件一致性，確保行動裝置與桌面裝置都有良好的閱讀體驗。</p>
+          <p class="skillText">
+            採用 Mobile First
+            策略設計版面，重視留白、資訊層級與元件一致性，確保行動裝置與桌面裝置都有良好的閱讀體驗。
+          </p>
         </article>
         <article class="skillCard">
           <h3 class="skillTitle">資料驅動 UI</h3>
-          <p class="skillText">以本地資料、slug 路由、列表與詳細頁結構打造可擴充的內容架構，並具備串接第三方 API 與處理串流回應的實作經驗。</p>
+          <p class="skillText">
+            以本地資料、slug 路由、列表與詳細頁結構打造可擴充的內容架構，並具備串接第三方 API
+            與處理串流回應的實作經驗。
+          </p>
         </article>
       </div>
     </BaseSection>
@@ -58,14 +75,19 @@
             <span class="focusDot"></span>
             <div class="focusContent">
               <p class="focusTitle">可維護性</p>
-              <p class="focusText">透過清楚的邏輯拆分與型別定義，讓專案能持續擴充，不需要大幅重構。</p>
+              <p class="focusText">
+                透過清楚的邏輯拆分與型別定義，讓專案能持續擴充，不需要大幅重構。
+              </p>
             </div>
           </li>
           <li class="focusItem">
             <span class="focusDot"></span>
             <div class="focusContent">
               <p class="focusTitle">實戰作品導向</p>
-              <p class="focusText">每個專案都涵蓋完整開發流程——從功能規劃、UI 實作到 CI/CD 部署，確保作品具備可展示、可說明、可延伸的完整度。</p>
+              <p class="focusText">
+                每個專案都涵蓋完整開發流程——從功能規劃、UI 實作到 CI/CD
+                部署，確保作品具備可展示、可說明、可延伸的完整度。
+              </p>
             </div>
           </li>
         </ul>
@@ -77,7 +99,9 @@
           <div class="ctaContent">
             <p class="ctaEyebrow">Keep Building</p>
             <h2 class="ctaTitle">把作品做成產品，把細節做到位</h2>
-            <p class="ctaText">接下來我會持續補強專案內容與技術文章，並在效能與無障礙設計上做更多優化。</p>
+            <p class="ctaText">
+              接下來我會持續補強專案內容與技術文章，並在效能與無障礙設計上做更多優化。
+            </p>
           </div>
           <div class="ctaActions">
             <BaseButton tag="RouterLink" to="/projects">看作品</BaseButton>
@@ -89,66 +113,69 @@
   </div>
 </template>
 <script setup lang="ts">
-import BaseContainer from "@/components/ui/BaseContainer.vue";
-import BaseSection from "@/components/ui/BaseSection.vue";
-import BaseButton from "@/components/ui/BaseButton.vue";
-import PageHero from "@/components/common/PageHero.vue";
+import BaseContainer from '@/components/ui/BaseContainer.vue'
+import BaseSection from '@/components/ui/BaseSection.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import PageHero from '@/components/common/PageHero.vue'
 </script>
 <style scoped>
-.aboutView{
+.aboutView {
   padding-top: var(--space8);
 }
-.introCard,.focusCard,.skillCard{
+.introCard,
+.focusCard,
+.skillCard {
   background: var(--white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius2);
   box-shadow: var(--shadow1);
   transition: var(--transitionNormal);
 }
-.introCard,.focusCard{
+.introCard,
+.focusCard {
   padding: var(--space6);
 }
-.introContent{
+.introContent {
   display: flex;
   flex-direction: column;
   gap: var(--space4);
   max-width: 780px;
 }
-.introText{
+.introText {
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.skillGrid{
+.skillGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space5);
 }
-.skillCard{
+.skillCard {
   padding: var(--space6);
 }
-.skillTitle{
+.skillTitle {
   font-size: var(--font5);
   line-height: var(--line1);
   color: var(--darkWordColor);
 }
-.skillText{
+.skillText {
   margin-top: var(--space3);
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.focusList{
+.focusList {
   display: flex;
   flex-direction: column;
   gap: var(--space5);
 }
-.focusItem{
+.focusItem {
   display: flex;
   align-items: flex-start;
   gap: var(--space4);
 }
-.focusDot{
+.focusDot {
   flex: 0 0 auto;
   width: 12px;
   height: 12px;
@@ -156,25 +183,25 @@ import PageHero from "@/components/common/PageHero.vue";
   border-radius: 999px;
   background: var(--mainColor);
 }
-.focusContent{
+.focusContent {
   display: flex;
   flex-direction: column;
   gap: var(--space2);
 }
-.focusTitle{
+.focusTitle {
   font-size: var(--font4);
   font-weight: 700;
   color: var(--darkWordColor);
 }
-.focusText{
+.focusText {
   font-size: var(--font3);
   line-height: var(--line3);
   color: var(--lightWordColor);
 }
-.ctaSection{
+.ctaSection {
   padding: var(--space8) 0 var(--space12);
 }
-.ctaCard{
+.ctaCard {
   display: flex;
   flex-direction: column;
   gap: var(--space6);
@@ -184,50 +211,52 @@ import PageHero from "@/components/common/PageHero.vue";
   color: var(--white);
   box-shadow: var(--shadow2);
 }
-.ctaContent{
+.ctaContent {
   display: flex;
   flex-direction: column;
   gap: var(--space3);
 }
-.ctaEyebrow{
+.ctaEyebrow {
   font-size: var(--font2);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.9;
 }
-.ctaTitle{
+.ctaTitle {
   font-size: clamp(var(--font7), 7vw, var(--font9));
   line-height: var(--line1);
 }
-.ctaText{
+.ctaText {
   max-width: 720px;
   font-size: var(--font3);
   line-height: var(--line3);
   opacity: 0.92;
 }
-.ctaActions{
+.ctaActions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space3);
 }
-@media(width>768px){
-  .aboutView{
+@media (width>768px) {
+  .aboutView {
     padding-top: var(--space10);
   }
-  .skillGrid{
+  .skillGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .ctaCard{
+  .ctaCard {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: var(--space8);
   }
-  .ctaActions{
+  .ctaActions {
     justify-content: flex-end;
   }
-  .introCard:hover,.focusCard:hover,.skillCard:hover{
+  .introCard:hover,
+  .focusCard:hover,
+  .skillCard:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow2);
   }

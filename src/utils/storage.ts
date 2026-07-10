@@ -18,7 +18,7 @@ export function getFromStorage<T>(key: string): T | null {
 /**
  * 將數據保存到 localStorage
  */
-export function saveToStorage(key: string, value: any): boolean {
+export function saveToStorage<T>(key: string, value: T): boolean {
   try {
     localStorage.setItem(key, JSON.stringify(value))
     return true

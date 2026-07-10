@@ -9,14 +9,14 @@
  */
 export function formatDate(date: string | Date, format = 'zh'): string {
   const d = new Date(date)
-  
+
   if (format === 'zh') {
     const year = d.getFullYear()
     const month = d.getMonth() + 1
     const day = d.getDate()
     return `${year}年${month}月${day}日`
   }
-  
+
   return d.toISOString().split('T')[0]
 }
 

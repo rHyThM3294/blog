@@ -11,7 +11,7 @@ export function useMarkdown() {
   const extractHeadings = (markdown: string): string[] => {
     const headings: string[] = []
     const lines = markdown.split('\n')
-    
+
     lines.forEach((line) => {
       if (line.startsWith('#')) {
         const heading = line.replace(/^#+\s*/, '').trim()
@@ -20,7 +20,7 @@ export function useMarkdown() {
         }
       }
     })
-    
+
     return headings
   }
 
@@ -29,13 +29,13 @@ export function useMarkdown() {
    */
   const generateTableOfContents = (markdown: string): string => {
     const headings = extractHeadings(markdown)
-    
+
     if (headings.length === 0) return ''
-    
+
     const toc = headings
       .map((heading, index) => `<li><a href="#heading-${index}">${heading}</a></li>`)
       .join('')
-    
+
     return `<ul class="toc">${toc}</ul>`
   }
 

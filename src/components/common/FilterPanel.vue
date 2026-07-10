@@ -1,9 +1,6 @@
 <template>
   <section class="filterPanel">
-    <div
-      class="filterGrid"
-      :style="gridStyle"
-    >
+    <div class="filterGrid" :style="gridStyle">
       <label class="searchField">
         <span class="fieldLabel">{{ searchLabel }}</span>
         <input
@@ -14,31 +11,20 @@
           @input="emitSearch"
         />
       </label>
-      <label
-        v-for="select in selects"
-        :key="select.key"
-        class="selectField"
-      >
+      <label v-for="select in selects" :key="select.key" class="selectField">
         <span class="fieldLabel">{{ select.label }}</span>
         <select
           class="selectInput"
           :value="select.modelValue"
           @change="emitSelect(select.key, $event)"
         >
-          <option
-            v-for="option in select.options"
-            :key="option.value"
-            :value="option.value"
-          >
+          <option v-for="option in select.options" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
       </label>
     </div>
-    <div
-      v-if="$slots.actions"
-      class="filterActions"
-    >
+    <div v-if="$slots.actions" class="filterActions">
       <slot name="actions" />
     </div>
   </section>
@@ -82,27 +68,29 @@ function emitSelect(key: string, event: Event) {
 }
 </script>
 <style scoped>
-.filterPanel{
+.filterPanel {
   margin-top: var(--space6);
   padding: var(--space4);
   border: 1px solid var(--lineColor);
   border-radius: var(--radiusLg);
   background: var(--cardColor);
 }
-.filterGrid{
+.filterGrid {
   display: grid;
   gap: var(--space4);
 }
-.searchField,.selectField{
+.searchField,
+.selectField {
   display: grid;
   gap: var(--space2);
 }
-.fieldLabel{
+.fieldLabel {
   font-size: var(--font2);
   font-weight: 700;
   color: var(--wordColor);
 }
-.searchInput,.selectInput{
+.searchInput,
+.selectInput {
   width: 100%;
   min-height: 44px;
   padding: 0 var(--space3);
@@ -113,23 +101,26 @@ function emitSelect(key: string, event: Event) {
   font-size: var(--font3);
   outline: none;
 }
-.filterActions{
+.filterActions {
   display: flex;
   justify-content: flex-end;
   margin-top: var(--space4);
 }
-@media (width>768px){
-  .filterGrid{
+@media (width>768px) {
+  .filterGrid {
     grid-template-columns: repeat(var(--filterColumnCount), minmax(0, 1fr));
     align-items: end;
   }
-  .searchInput,.selectInput{
-    transition: border-color var(--transitionNormal), box-shadow var(--transitionNormal);
+  .searchInput,
+  .selectInput {
+    transition:
+      border-color var(--transitionNormal),
+      box-shadow var(--transitionNormal);
   }
   .searchInput:hover,
   .selectInput:hover,
   .searchInput:focus,
-  .selectInput:focus{
+  .selectInput:focus {
     border-color: var(--mainColor);
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
   }
