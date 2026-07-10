@@ -6,6 +6,7 @@ export interface Project {
   description?: string
   content?: string
   cover?: string
+  coverFit?: 'cover' | 'contain'
   techStack?: string[]
   demoUrl?: string
   repoUrl?: string

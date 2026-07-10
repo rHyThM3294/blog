@@ -24,12 +24,13 @@
       </section>
       <section class="coverSection">
         <BaseContainer>
-          <div class="coverCard">
+          <div class="coverCard" :class="{ coverCardContain: project.coverFit === 'contain' }">
             <img
               v-if="project.cover"
               :src="project.cover"
               :alt="project.title"
               class="coverImage"
+              :class="{ coverImageContain: project.coverFit === 'contain' }"
             />
             <div v-else class="coverPlaceholder">
               {{ project.title }}
@@ -172,10 +173,16 @@ const project = computed<Project | undefined>(() => {
 .coverCard {
   overflow: hidden;
 }
+.coverCardContain {
+  background: var(--mainColor);
+}
 .coverImage {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+.coverImageContain {
+  object-fit: contain;
 }
 .coverPlaceholder {
   display: flex;

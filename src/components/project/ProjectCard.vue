@@ -1,8 +1,14 @@
 <template>
   <BaseCard>
     <RouterLink :to="`/projects/${project.slug}`" class="projectCard">
-      <div class="imageWrap">
-        <img v-if="project.cover" :src="project.cover" :alt="project.title" class="projectImage" />
+      <div class="imageWrap" :class="{ imageWrapContain: project.coverFit === 'contain' }">
+        <img
+          v-if="project.cover"
+          :src="project.cover"
+          :alt="project.title"
+          class="projectImage"
+          :class="{ projectImageContain: project.coverFit === 'contain' }"
+        />
         <div v-else class="projectPlaceholder">
           {{ project.title }}
         </div>
@@ -42,11 +48,17 @@ const displayTechStack = computed(() => {
   background: var(--secondColor);
   overflow: hidden;
 }
+.imageWrapContain {
+  background: var(--mainColor);
+}
 .projectImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: var(--transitionNormal);
+}
+.projectImageContain {
+  object-fit: contain;
 }
 .projectPlaceholder {
   display: flex;
