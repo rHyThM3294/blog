@@ -3,46 +3,46 @@
     <PageHero
       eyebrow="About"
       title="關於我"
-      description="我目前專注在前端開發學習與作品實作，希望把每一次練習都累積成更完整、可展示的專案成果。"
+      description="我是一名前端開發者，專注於 Vue 3 生態系與 TypeScript，透過多個實作專案累積從需求規劃、介面切版到功能開發、自動化部署的完整能力。"
     />
     <BaseSection
       class="introSection"
       title="自我介紹"
-      description="目前持續透過專案練習、介面切板與功能拆分，累積自己的前端工程能力。"
+      description="以下是我的技術背景與開發方式。"
       compact
     >
       <div class="introCard">
         <div class="introContent">
-          <p class="introText">我目前主要使用Vue 3、Vite與TypeScript進行前端開發，持續練習從需求整理、畫面規劃、資料建模，到元件拆分與頁面整合的完整流程。</p>
-          <p class="introText">我希望做的不只是「把畫面做出來」，而是逐步建立更有結構、可維護、可擴充的前端專案，讓作品不只是練習成果，也能成為未來面試與職涯發展的基礎。</p>
+          <p class="introText">我主要使用 Vue 3、Vite 與 TypeScript 開發前端應用，也具備 React 與 Next.js 的實作經驗。從需求拆解、介面切版、資料建模，到元件設計與狀態管理，我習慣把每個作品當成完整產品來規劃，並透過 GitHub Actions 建立自動化部署流程。</p>
+          <p class="introText">比起把畫面做出來，我更在意程式碼的結構與可維護性——包含元件的 Props 設計、邏輯拆分為 Composables／Custom Hooks，以及必要時搭配單元測試驗證行為，讓專案在規模擴大後依然容易維護與擴充。</p>
         </div>
       </div>
     </BaseSection>
     <BaseSection
       class="skillSection"
-      title="目前正在累積的能力"
-      description="以下是我目前持續練習與整理中的前端能力方向。"
+      title="核心能力"
+      description="以下是我目前具備並持續深化的前端能力方向。"
       compact
     >
       <div class="skillGrid">
         <article class="skillCard">
           <h3 class="skillTitle">前端框架實作</h3>
-          <p class="skillText">熟悉Vue3組件拆分、Props / Emits、computed、router 規劃，並持續練習用更清楚的方式組織頁面與邏輯。</p>
+          <p class="skillText">熟悉 Vue 3 元件拆分、Props / Emits、Composition API 與 Vue Router 路由規劃，並具備 React + Next.js 的實作經驗。</p>
         </article>
         <article class="skillCard">
-          <h3 class="skillTitle">介面切版與RWD</h3>
-          <p class="skillText">使用 mobile first 思維設計版面，重視留白、資訊層級與元件一致性，讓網站在行動裝置與桌面裝置都能保持良好閱讀體驗。</p>
+          <h3 class="skillTitle">介面切版與 RWD</h3>
+          <p class="skillText">採用 Mobile First 策略設計版面，重視留白、資訊層級與元件一致性，確保行動裝置與桌面裝置都有良好的閱讀體驗。</p>
         </article>
         <article class="skillCard">
-          <h3 class="skillTitle">資料驅動UI</h3>
-          <p class="skillText">持續練習使用本地資料、slug 路由、列表與詳細頁結構，讓畫面不是寫死，而是能往可擴充的內容架構發展。</p>
+          <h3 class="skillTitle">資料驅動 UI</h3>
+          <p class="skillText">以本地資料、slug 路由、列表與詳細頁結構打造可擴充的內容架構，並具備串接第三方 API 與處理串流回應的實作經驗。</p>
         </article>
       </div>
     </BaseSection>
     <BaseSection
       class="focusSection"
-      title="我目前的開發方向"
-      description="現階段我特別在意的，不只是功能是否完成，而是整體專案能不能持續被整理與進化。"
+      title="我在意的開發原則"
+      description="比起功能是否完成，我更在意整體專案能不能持續被整理與擴充。"
       compact
     >
       <div class="focusCard">
@@ -51,21 +51,21 @@
             <span class="focusDot"></span>
             <div class="focusContent">
               <p class="focusTitle">元件化思維</p>
-              <p class="focusText">盡量把重複區塊整理成共用元件，降低重工，也讓頁面結構更清楚。</p>
+              <p class="focusText">把重複區塊整理成共用元件，降低重工，讓頁面結構保持清楚一致。</p>
             </div>
           </li>
           <li class="focusItem">
             <span class="focusDot"></span>
             <div class="focusContent">
               <p class="focusTitle">可維護性</p>
-              <p class="focusText">比起一次把畫面塞滿，我更希望每個元件與頁面都能逐步擴充、容易調整</p>
+              <p class="focusText">透過清楚的邏輯拆分與型別定義，讓專案能持續擴充，不需要大幅重構。</p>
             </div>
           </li>
           <li class="focusItem">
             <span class="focusDot"></span>
             <div class="focusContent">
               <p class="focusTitle">實戰作品導向</p>
-              <p class="focusText">目前的每個專案都盡量朝「可展示、可說明、可延伸」的方向整理，而不是只完成作業。</p>
+              <p class="focusText">每個專案都涵蓋完整開發流程——從功能規劃、UI 實作到 CI/CD 部署，確保作品具備可展示、可說明、可延伸的完整度。</p>
             </div>
           </li>
         </ul>
@@ -75,9 +75,9 @@
       <BaseContainer>
         <div class="ctaCard">
           <div class="ctaContent">
-            <p class="ctaEyebrow">Keep Learning</p>
-            <h2 class="ctaTitle">持續把練習變成作品，把作品變成能力</h2>
-            <p class="ctaText">接下來我會持續補強更多專案內容、文章整理與互動細節，讓這個網站慢慢成為更完整的個人品牌作品站。</p>
+            <p class="ctaEyebrow">Keep Building</p>
+            <h2 class="ctaTitle">把作品做成產品，把細節做到位</h2>
+            <p class="ctaText">接下來我會持續補強專案內容與技術文章，並在效能與無障礙設計上做更多優化。</p>
           </div>
           <div class="ctaActions">
             <BaseButton tag="RouterLink" to="/projects">看作品</BaseButton>
