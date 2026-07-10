@@ -11,6 +11,7 @@
       <RouterView />
     </main>
     <SiteFooter />
+    <BackToTop />
   </div>
 </template>
 <script setup lang="ts">
@@ -18,6 +19,7 @@ import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
+import BackToTop from '@/components/common/BackToTop.vue'
 import gsap from 'gsap'
 const isMenuOpen = ref(false)
 const panelRef = ref<HTMLElement | null>(null)

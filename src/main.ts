@@ -2,7 +2,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faXmark, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark, faEnvelope, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import App from './App.vue'
 import router from './router'
@@ -14,8 +14,18 @@ import 'highlight.js/styles/github.css'
 
 const app = createApp(App)
 
+app.component('FontAwesomeIcon', FontAwesomeIcon)
+library.add(faBars, faXmark, faEnvelope, faArrowUp)
+
 app.use(createPinia())
 app.use(router)
-app.mount('#app')
-app.component('FontAwesomeIcon', FontAwesomeIcon)
-library.add(faBars, faXmark, faEnvelope)
+
+router.isReady().then(() => {
+  app.mount('#app')
+
+  const loader = document.getElementById('initialLoader')
+  if (loader) {
+    loader.classList.add('isHidden')
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true })
+  }
+})
