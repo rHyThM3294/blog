@@ -64,10 +64,10 @@ CI/CD 透過 GitHub Actions 串成完整流程：型別檢查 → 測試 → 建
     id: 3,
     title: '勞保退休所',
     slug: 'labor-site',
-    summary: '以白話文解釋台灣勞保與勞退制度的知識型網站，含四種互動試算工具與即時法規數據串接。',
+    summary: '以白話文解釋臺灣勞保與勞退制度的知識型網站，含四種互動試算工具與即時法規數據串接。',
     description:
       '以 Next.js App Router 打造的勞工退休知識網站，提供勞保六大給付說明、新舊制退休金比較、特殊族群指南，並實作退休金複利試算、老年給付試算等互動工具。透過 Next.js API Route 提供即時法規數據，搭配 SWR 處理前端資料獲取，並以 GSAP 實作 Navbar 與 FAQ 動畫。',
-    content: `這個專案的起點是一個真實觀察：台灣很多勞工不清楚自己的勞保勞退權益，網路上的資料又散落各處、語言艱澀。我想用清晰的架構和白話文，讓這些制度變得容易理解。
+    content: `這個專案的起點是一個真實觀察：臺灣很多勞工不清楚自己的勞保勞退權益，網路上的資料又散落各處、語言艱澀。我想用清晰的架構和白話文，讓這些制度變得容易理解。
 
 技術架構圍繞 Next.js App Router 設計。API Route 用來提供勞動法規的即時數據（如投保薪資分級表、利率），設定 revalidate: 3600 讓快取每小時更新一次，兼顧效能與資料準確性。前端用 SWR 消費這個 API，處理 loading skeleton、error retry 與 revalidateOnFocus 的細節控制。
 
@@ -81,6 +81,7 @@ GSAP 動畫方面，Navbar 的下拉選單使用 clipPath 展開效果，FAQ 手
 
 內容頁面涵蓋勞保六大給付完整說明、勞退新舊制比較，以及針對接案族、外送員、兼職族與外籍工作者的特殊族群指南，每個頁面都有對應的 FAQ。`,
     cover: laborSiteCover,
+    coverFit: 'contain',
     techStack: ['Next.js', 'TypeScript', 'GSAP', 'SWR', 'CSS Variables', 'Vercel'],
     demoUrl: 'https://labor-site-one.vercel.app/',
     repoUrl: 'https://github.com/rHyThM3294/labor-site',
