@@ -17,6 +17,10 @@
           >
             {{ item.label }}
           </RouterLink>
+          <a href="mailto:smile32943294@gmail.com" class="footerLink footerContact">
+            <FontAwesomeIcon icon="envelope" />
+            smile32943294@gmail.com
+          </a>
         </nav>
         <p class="copyright">
           <small>© {{ year }} Titanium.dev All rights reserved.</small>
@@ -26,6 +30,7 @@
   </footer>
 </template>
 <script setup lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { mainNavItems } from '@/config/nav'
 const footerNavItems = mainNavItems.filter(item => item.showInFooter)
@@ -65,6 +70,11 @@ const year = new Date().getFullYear()
   color: var(--firstColor);
   text-decoration: none;
   transition: var(--transitionNormal);
+}
+.footerContact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
 }
 .copyright {
   font-size: var(--font1);

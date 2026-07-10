@@ -80,7 +80,7 @@ GSAP 動畫方面，Navbar 的下拉選單使用 clipPath 展開效果，FAQ 手
 內容頁面涵蓋勞保六大給付完整說明、勞退新舊制比較，以及針對接案族、外送員、兼職族與外籍工作者的特殊族群指南，每個頁面都有對應的 FAQ。`,
     cover: "https://picsum.photos/seed/labor-site/800/500",
     techStack: ["Next.js", "TypeScript", "GSAP", "SWR", "CSS Variables", "Vercel"],
-    demoUrl: "https://github.com/rHyThM3294/labor-site",
+    demoUrl: "https://labor-site-one.vercel.app/",
     repoUrl: "https://github.com/rHyThM3294/labor-site",
     role: "前端開發",
     period: "2026",

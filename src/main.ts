@@ -2,7 +2,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faXmark, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import App from './App.vue'
 import router from './router'
@@ -18,4 +18,4 @@ app.use(createPinia())
 app.use(router)
 app.mount('#app')
 app.component("FontAwesomeIcon", FontAwesomeIcon)
-library.add(faBars, faXmark)
+library.add(faBars, faXmark, faEnvelope)
