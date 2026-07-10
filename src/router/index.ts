@@ -7,7 +7,7 @@ const ProjectDetailView = () => import("@/views/ProjectDetailView.vue");
 const BlogView = () => import("@/views/BlogView.vue");
 const BlogDetailView = () => import("@/views/BlogDetailView.vue");
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
